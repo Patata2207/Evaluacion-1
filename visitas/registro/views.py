@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Visita
-from .forms import Visitaform
+from .forms import VisitaForm
 
 # Lista de visitas
 def registro_visitas(request):
@@ -15,24 +15,24 @@ def motivo_registro(request, id):
 # Crear nueva visita
 def nuevo_registro(request):
     if request.method == 'POST':
-        form = Visitaform(request.POST)
+        form = VisitaForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('registro_visitas')
     else:
-        form = Visitaform()
+        form = VisitaForm()
     return render(request, 'visitas/nuevo_registro.html', {'form': form})
 
 # Editar visita
 def editar_registro(request, id):
     visita = get_object_or_404(Visita, id=id)
     if request.method == 'POST':
-        form = Visitaform(request.POST, instance=visita)
+        form = VisitaForm(request.POST, instance=visita)
         if form.is_valid():
             form.save()
             return redirect('registro_visitas')
     else:
-        form = Visitaform(instance=visita)
+        form = VisitaForm(instance=visita)
     return render(request, 'visitas/editar_registro.html', {'form': form})
 
 # Eliminar visita

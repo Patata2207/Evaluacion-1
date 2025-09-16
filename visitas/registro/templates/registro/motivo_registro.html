@@ -1,0 +1,21 @@
+{% extends 'inventario/base.html' %}
+
+{% block title %}
+  Detalle de la Visita
+{% endblock %}
+
+{% block content %}
+  <h1 class="text-2xl font-bold mb-4">Detalle de la Visita</h1>
+  <div class="bg-white p-4 rounded shadow">
+    <h2 class="text-xl font-bold">{{ visita.nombre }}</h2>
+    <p class="mt-2">RUT: {{ visita.rut }}</p>
+    <p class="mt-2">Motivo: {{ visita.motivo }}</p>
+    <p class="mt-2">Hora de entrada: {{ visita.hora_entrada }}</p>
+    <p class="mt-2">Hora de salida: {{ visita.hora_salida }}</p>
+
+    <a href="{% url 'registro_visitas' %}" 
+       class="hover:scale-105 transition-all ease-in mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">
+      Volver al registro
+    </a>
+  </div>
+{% endblock %}
