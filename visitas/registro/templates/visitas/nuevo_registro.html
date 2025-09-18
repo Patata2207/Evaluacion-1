@@ -1,4 +1,4 @@
-{% extends 'inventario/base.html' %}
+{% extends 'visitas/base.html' %}
 
 {% block title %}
   Nueva Visita
@@ -52,7 +52,7 @@
       <!-- Campo Hora Entrada -->
       <div class="mb-6">
         <label for="{{ form.hora_entrada.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
-          {{ form.hora_entrada.label }}
+          {{ form.hora_entrada.label }} <span class="text-red-500">*</span>
         </label>
         {{ form.hora_entrada }}
         {% if form.hora_entrada.errors %}
@@ -63,13 +63,15 @@
       <!-- Campo Hora Salida -->
       <div class="mb-6">
         <label for="{{ form.hora_salida.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
-          {{ form.hora_salida.label }}
+          {{ form.hora_salida.label }} <span class="text-red-500">*</span>
         </label>
         {{ form.hora_salida }}
         {% if form.hora_salida.errors %}
           <div class="mt-2 text-sm text-red-600">{{ form.hora_salida.errors }}</div>
         {% endif %}
       </div>
+
+
 
       <!-- Botones -->
       <div class="flex items-center justify-end space-x-4 pt-6 border-t border-gray-200">

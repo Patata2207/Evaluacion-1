@@ -1,4 +1,4 @@
-{% extends 'inventario/base.html' %}
+{% extends 'visitas/base.html' %}
 
 {% block title %}
   Eliminar Visita
@@ -10,6 +10,6 @@
     {% csrf_token %}
     <p>¿Estás seguro de que deseas eliminar la visita de <strong>{{ visita.nombre }}</strong> con RUT <strong>{{ visita.rut }}</strong>?</p>
     <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Eliminar</button>
-    <a href="{% url 'lista_visitas' %}" class="hover:scale-105 transition-all ease-in ml-4 bg-gray-500 text-white px-4 py-2 rounded">Cancelar</a>
+    <a href="{% url 'registro_visitas' %}" class="hover:scale-105 transition-all ease-in ml-4 bg-gray-500 text-white px-4 py-2 rounded">Cancelar</a>
   </form>
 {% endblock %}

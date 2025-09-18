@@ -12,16 +12,16 @@ def motivo_registro(request, id):
     visita = get_object_or_404(Visita, id=id)
     return render(request, 'visitas/motivo_registro.html', {'visita': visita})
 
-# Crear nueva visita
+
 def nuevo_registro(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = VisitaForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('registro_visitas')
+            return redirect("registro_visitas")
     else:
         form = VisitaForm()
-    return render(request, 'visitas/nuevo_registro.html', {'form': form})
+    return render(request, "visitas/nuevo_registro.html", {"form": form})
 
 # Editar visita
 def editar_registro(request, id):
@@ -31,9 +31,12 @@ def editar_registro(request, id):
         if form.is_valid():
             form.save()
             return redirect('registro_visitas')
+        else:
+            print(form.errors)  # 👈 Debug para ver errores
     else:
         form = VisitaForm(instance=visita)
     return render(request, 'visitas/editar_registro.html', {'form': form})
+
 
 # Eliminar visita
 def eliminar_registro(request, id):
