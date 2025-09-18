@@ -8,13 +8,27 @@ class VisitaForm(forms.ModelForm):
         model = Visita
         fields = ["nombre", "rut", "motivo", "hora_entrada", "hora_salida"]
         widgets = {
-            "hora_entrada": forms.TextInput(attrs={
-                "placeholder": "2025-09-16 09:30:00"
-            }),
-            "hora_salida": forms.TextInput(attrs={
-                "placeholder": "2025-09-16 18:00:00"
-            }),
+            "hora_entrada": forms.DateTimeInput(
+                attrs={
+                    "type": "datetime-local", 
+                    "class": "form-control"
+                },
+                format="%Y-%m-%dT%H:%M"
+            ),
+            "hora_salida": forms.DateTimeInput(
+                attrs={
+                    "type": "datetime-local", 
+                    "class": "form-control"
+                },
+                format="%Y-%m-%dT%H:%M"
+            ),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Para que muestre el valor en el formato correcto si ya existe
+        self.fields["hora_entrada"].input_formats = ["%Y-%m-%dT%H:%M"]
+        self.fields["hora_salida"].input_formats = ["%Y-%m-%dT%H:%M"]
 
     # Validar RUT con guion
     def clean_rut(self):

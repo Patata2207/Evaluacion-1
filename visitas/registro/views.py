@@ -14,14 +14,16 @@ def motivo_registro(request, id):
 
 
 def nuevo_registro(request):
+    mensaje = None
     if request.method == "POST":
         form = VisitaForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("registro_visitas")
+            mensaje = "¡Visita agendada correctamente!"
+            form = VisitaForm()  # Limpiar el formulario
     else:
         form = VisitaForm()
-    return render(request, "visitas/nuevo_registro.html", {"form": form})
+    return render(request, "visitas/nuevo_registro.html", {"form": form, "mensaje": mensaje})
 
 # Editar visita
 def editar_registro(request, id):
@@ -45,3 +47,15 @@ def eliminar_registro(request, id):
         visita.delete()
         return redirect('registro_visitas')
     return render(request, 'visitas/eliminar_registro.html', {'visita': visita})
+
+
+def registro_admim(request):
+    error = None
+    if request.method == "POST":
+        correo = request.POST.get("correo")
+        password = request.POST.get("password")
+        if correo == "admin@admin.com" and password == "1234":
+            return redirect("registro_visitas")
+        else:
+            error = "Correo o contraseña incorrectos."
+    return render(request, 'visitas/registro_admim.html', {"error": error})
