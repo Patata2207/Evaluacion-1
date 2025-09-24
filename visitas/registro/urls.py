@@ -9,3 +9,5 @@ urlpatterns = [
     path("registro/registro_admim/", views.registro_admim, name="registro_admim"),
     path("registro/registro_visitas/", views.registro_visitas, name="registro_visitas"),
 ]
+
+# Definime las rutas URL 
