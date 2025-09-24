@@ -13,9 +13,6 @@
     <p class="mt-2">Hora de entrada: {{ visita.hora_entrada }}</p>
     <p class="mt-2">Hora de salida: {{ visita.hora_salida }}</p>
 
-    <a href="{% url 'registro_visitas' %}" 
-       class="hover:scale-105 transition-all ease-in mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">
-      Volver al registro
-    </a>
+    <a href="{% url 'registro_visitas' %}" class="hover:scale-105 transition-all ease-in mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">Volver al registro</a>
   </div>
 {% endblock %}

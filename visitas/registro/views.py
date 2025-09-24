@@ -68,7 +68,7 @@ def eliminar_registro(request, id):
 
 
 # Vista para el login de administrador (￣y▽￣)╭ Ohohoho.....
-def registro_admim(request):
+def registro_admin(request):
     error = None  
     if request.method == "POST":
         # Obtiene el correo y la contraseña del formulario
@@ -80,4 +80,4 @@ def registro_admim(request):
         else:
             error = "Correo o contraseña incorrectos."
     # Renderiza el formulario de login de administrador, mostrando un mensaje de error si corresponde
-    return render(request, 'visitas/registro_admim.html', {"error": error})
+    return render(request, 'visitas/registro_admin.html', {"error": error})

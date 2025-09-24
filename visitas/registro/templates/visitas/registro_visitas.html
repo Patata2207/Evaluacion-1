@@ -9,7 +9,6 @@
     <!-- Encabezado -->
     <div class="flex items-center justify-between mb-6">
       <h1 class="text-3xl font-bold text-gray-800">Registro de Visitas</h1>
- 
     </div>
 
     <!-- Tabla -->
@@ -32,43 +31,26 @@
               <td class="px-6 py-4 text-gray-600">{{ visita.rut }}</td>
               <td class="px-6 py-4 text-gray-700">{{ visita.motivo }}</td>
               <td class="px-6 py-4">
-                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700">
-                  {{ visita.hora_entrada }}
-                </span>
+                <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-700">{{ visita.hora_entrada }}</span>
               </td>
               <td class="px-6 py-4">
                 {% if visita.hora_salida %}
-                  <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700">
-                    {{ visita.hora_salida }}
-                  </span>
+                  <span class="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-700">{{ visita.hora_salida }}</span>
                 {% else %}
-                  <span class="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-500">
-                    Pendiente
-                  </span>
+                  <span class="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-500">Pendiente</span>
                 {% endif %}
               </td>
               <td class="px-6 py-4 text-center">
                 <div class="flex justify-center gap-2">
-                  <a href="{% url 'motivo_registro' visita.id %}" 
-                     class="px-3 py-1.5 rounded-lg bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-all shadow-md hover:shadow-lg">
-                    Ver
-                  </a>
-                  <a href="{% url 'editar_registro' visita.id %}" 
-                     class="px-3 py-1.5 rounded-lg bg-yellow-500 text-white text-sm font-medium hover:bg-yellow-600 transition-all shadow-md hover:shadow-lg">
-                    Editar
-                  </a>
-                  <a href="{% url 'eliminar_registro' visita.id %}" 
-                     class="px-3 py-1.5 rounded-lg bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition-all shadow-md hover:shadow-lg">
-                    Eliminar
-                  </a>
+                  <a href="{% url 'motivo_registro' visita.id %}" class="px-3 py-1.5 rounded-lg bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-all shadow-md hover:shadow-lg">Ver</a>
+                  <a href="{% url 'editar_registro' visita.id %}" class="px-3 py-1.5 rounded-lg bg-yellow-500 text-white text-sm font-medium hover:bg-yellow-600 transition-all shadow-md hover:shadow-lg">Editar</a>
+                  <a href="{% url 'eliminar_registro' visita.id %}" class="px-3 py-1.5 rounded-lg bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition-all shadow-md hover:shadow-lg">Eliminar</a>
                 </div>
               </td>
             </tr>
           {% empty %}
             <tr>
-              <td colspan="6" class="px-6 py-8 text-center text-gray-500">
-                No hay visitas registradas.
-              </td>
+              <td colspan="6" class="px-6 py-8 text-center text-gray-500">No hay visitas registradas.</td>
             </tr>
           {% endfor %}
         </tbody>

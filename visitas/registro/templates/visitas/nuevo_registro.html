@@ -7,38 +7,30 @@
 {% block content %}
   <div class="max-w-2xl mx-auto">
     <div class="bg-white mb-4 p-6 rounded-lg border border-gray-200 flex justify-between items-center">
-        <h1 class="text-3xl font-bold text-gray-800 mb-0">Nueva Visita</h1>
-        <a href="{% url 'registro_admim' %}" class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900 transition duration-200 ml-auto">Vista Administrador</a>
+      <h1 class="text-3xl font-bold text-gray-800 mb-0">Nueva Visita</h1>
+      <a href="{% url 'registro_admim' %}" class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900 transition duration-200 ml-auto">Vista Administrador</a>
     </div>
 
     <div class="bg-white mb-4 p-6 rounded-lg border border-gray-200">
-      <p class="text-sm text-gray-600">
-        Complete el siguiente formulario para registrar una nueva visita en la empresa (los campos en rojo son obligatorios).
-      </p>
+      <p class="text-sm text-gray-600">Complete el siguiente formulario para registrar una nueva visita en la empresa (los campos en rojo son obligatorios).</p>
     </div>
 
     <form method="post" class="bg-white p-8 rounded-lg shadow-lg border border-gray-200">
-        {% if mensaje %}
-          <div class="mb-4 p-4 rounded bg-green-100 text-green-800 border border-green-300">{{ mensaje }}</div>
-        {% endif %}
+      {% if mensaje %}
+        <div class="mb-4 p-4 rounded bg-green-100 text-green-800 border border-green-300">{{ mensaje }}</div>
+      {% endif %}
       {% csrf_token %}
 
-
       <div class="mb-6">
-        <label for="{{ form.nombre.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
-          {{ form.nombre.label }}
-        </label>
+        <label for="{{ form.nombre.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.nombre.label }}</label>
         {{ form.nombre }}
         {% if form.nombre.errors %}
           <div class="mt-2 text-sm text-red-600">{{ form.nombre.errors }}</div>
         {% endif %}
       </div>
 
-
       <div class="mb-6">
-        <label for="{{ form.rut.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
-          {{ form.rut.label }}
-        </label>
+        <label for="{{ form.rut.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.rut.label }}</label>
         {{ form.rut }}
         {% if form.rut.errors %}
           <div class="mt-2 text-sm text-red-600">{{ form.rut.errors }}</div>
@@ -47,9 +39,7 @@
 
       <!-- Campo Motivo -->
       <div class="mb-6">
-        <label for="{{ form.motivo.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
-          {{ form.motivo.label }}
-        </label>
+        <label for="{{ form.motivo.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.motivo.label }}</label>
         {{ form.motivo }}
         {% if form.motivo.errors %}
           <div class="mt-2 text-sm text-red-600">{{ form.motivo.errors }}</div>
@@ -58,9 +48,7 @@
 
       <!-- Campo Hora Entrada -->
       <div class="mb-6">
-        <label for="{{ form.hora_entrada.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
-          {{ form.hora_entrada.label }} <span class="text-red-500">*</span>
-        </label>
+        <label for="{{ form.hora_entrada.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.hora_entrada.label }} <span class="text-red-500">*</span></label>
         {{ form.hora_entrada }}
         {% if form.hora_entrada.errors %}
           <div class="mt-2 text-sm text-red-600">{{ form.hora_entrada.errors }}</div>
@@ -69,9 +57,7 @@
 
       <!-- Campo Hora Salida -->
       <div class="mb-6">
-        <label for="{{ form.hora_salida.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">
-          {{ form.hora_salida.label }} <span class="text-red-500">*</span>
-        </label>
+        <label for="{{ form.hora_salida.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-2">{{ form.hora_salida.label }} <span class="text-red-500">*</span></label>
         {{ form.hora_salida }}
         {% if form.hora_salida.errors %}
           <div class="mt-2 text-sm text-red-600">{{ form.hora_salida.errors }}</div>
@@ -80,14 +66,8 @@
 
       <!-- Botones -->
       <div class="flex items-center justify-end space-x-4 pt-6 border-t border-gray-200">
-        <a href="{% url 'nuevo_registro' %}"
-           class="inline-flex items-center px-6 py-3 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200">
-          Cancelar
-        </a>
-        <button type="submit"
-                class="hover:scale-105 transition-all ease-in inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200">
-          Guardar Visita
-        </button>
+        <a href="{% url 'nuevo_registro' %}" class="inline-flex items-center px-6 py-3 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200">Cancelar</a>
+        <button type="submit" class="hover:scale-105 transition-all ease-in inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200">Guardar Visita</button>
       </div>
     </form>
   </div>
@@ -104,12 +84,12 @@
       color: #374151;
       transition: all 0.2s ease-in-out;
     }
-
+    
     input::placeholder,
     textarea::placeholder {
       color: #9ca3af;
     }
-
+    
     input:focus,
     textarea:focus,
     select:focus {
@@ -117,16 +97,16 @@
       border-color: #084ceaff;
       box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
     }
-
+    
     textarea {
       resize: vertical;
       min-height: 100px;
     }
-
+    
     input:invalid {
       border-color: #fca5a5;
     }
-
+    
     input:invalid:focus {
       border-color: #ef4444;
       box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
