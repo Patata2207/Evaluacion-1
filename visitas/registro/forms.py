@@ -32,6 +32,7 @@ class VisitaForm(forms.ModelForm):
             ),
         }
 
+#Ingresamos validadores en este archivo por que aqui es donde sew define como se reciben y procesan datos que se ingresan
 
     # Inicializamos el formulario y define los formatos de entrada para los campos de fecha y hora o(*￣▽￣*)ブ
     def __init__(self, *args, **kwargs):
