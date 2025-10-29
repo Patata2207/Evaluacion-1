@@ -33,7 +33,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 ALLOWED_HOSTS = [
-    'evaluacion-1-production.up.railway.app'
+    'evaluacion-1-production.up.railway.app',
+    '.railway.app',
     '.onrender.com',
     '.herokuapp.com',
     '127.0.0.1',
