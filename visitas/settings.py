@@ -31,14 +31,12 @@ DEBUG = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-]
 
 ALLOWED_HOSTS = [
     '.onrender.com',
     '.herokuapp.com',
-    '127.0.0.1'
+    '127.0.0.1',
+    '.railway.app'
 ]
 
 
