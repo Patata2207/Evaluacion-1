@@ -7,6 +7,7 @@ from .forms import VisitaForm
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
 from .serializers import GroupSerializer, UserSerializer
+from django.contrib.auth.decorators import login_required
 
 
 class UserViewSet(viewsets.ModelViewSet):
