@@ -50,6 +50,8 @@ CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:4200',
     'http://127.0.0.1:4200',
+    'http://localhost:4321',
+    'http://127.0.0.1:4321',
 ]
 
 # If you are using cookies/auth, enable credentials

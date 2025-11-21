@@ -12,7 +12,7 @@ from .serializers import GroupSerializer, UserSerializer, VisitaSerializer
 class VisitaViewSet(viewsets.ModelViewSet):
     queryset = Visita.objects.all().order_by("nombre")
     serializer_class = VisitaSerializer
-    permission_classes = []
+    permission_classes = [permissions.IsAuthenticated]
 
 
 
