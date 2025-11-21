@@ -39,8 +39,21 @@ ALLOWED_HOSTS = [
     '.onrender.com',
     '.herokuapp.com',
     '127.0.0.1',
+    'localhost',
+    '.angular.io',
 ]
-CORS_ALLOW_ALL_ORIGINS = True
+# During development it's convenient to allow the frontend origin explicitly.
+# For production, consider setting this to False and restrict origins.
+CORS_ALLOW_ALL_ORIGINS = False
+
+# Allow the Angular dev server origin
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200',
+    'http://127.0.0.1:4200',
+]
+
+# If you are using cookies/auth, enable credentials
+CORS_ALLOW_CREDENTIALS = True
 
 
 # Application definition
@@ -73,11 +86,11 @@ SIMPLE_JWT = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",

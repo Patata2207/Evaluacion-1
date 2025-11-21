@@ -5,7 +5,7 @@ from .models import Visita
 
 class VisitaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        Model = Visita
+        model = Visita
         fields = [
             "url",
             "nombre",
