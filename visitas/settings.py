@@ -56,6 +56,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:4321',
     'https://clienteastroo.netlify.app',
     'https://clienteastro.netlify.app',
+    'https://candid-treacle-c790a9.netlify.app',
 ]
 
 # If you are using cookies/auth, enable credentials
@@ -64,7 +65,8 @@ CORS_ALLOW_CREDENTIALS = True
 # Si se usan formularios/cookies desde Netlify, confiar en ese origen
 CSRF_TRUSTED_ORIGINS = [
     'https://clienteastroo.netlify.app',
-    'https://clienteastro.netlify.app'
+    'https://clienteastro.netlify.app',
+    'https://candid-treacle-c790a9.netlify.app'
 ]
 
 # Asegurar cabecera Authorization explícitamente (opcional, default ya la incluye)
